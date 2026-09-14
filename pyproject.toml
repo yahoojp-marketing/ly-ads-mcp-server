@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ly-ads-mcp"
+version = "0.0.1"
+description = "MCP Server for LY Ads, depends on LY Ads API."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+  { name = "LY Corporation" },
+]
+maintainers = [
+  { name = "LY Ads product team" },
+]
+requires-python = ">=3.11"
+dependencies = [
+  "cryptography>=50.0.0,<51",
+  "fastmcp>=3,<4",
+  "pydantic>=2,<3",
+  "starlette>=1.3.1,<2",
+  "python-dateutil>=2.8,<3",
+  "typing-extensions>=4",
+  "urllib3>=1.26,<3",
+]
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=8,<9",
+  "pytest-asyncio>=0.24,<1",
+  "ruff>=0.9,<1",
+  "deptry>=0.23,<1",
+]
+
+[tool.deptry]
+known_first_party = ["ads_display_client", "ads_search_client", "ly_ads_mcp"]
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["cryptography"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+extend-exclude = ["generated"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[project.scripts]
+ly-ads-mcp = "ly_ads_mcp.server:run_server"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ly_ads_mcp", "generated/ads_display_client", "generated/ads_search_client"]
+
+[project.urls]
+homepage = "https://github.com/yahoojp-marketing/ly-ads-mcp-server"
+repository = "https://github.com/yahoojp-marketing/ly-ads-mcp-server.git"
+support = "https://www.lycbiz.com/jp/contact/support/ly-ads/"
