@@ -1,8 +1,8 @@
-# LY Ads MCP Server
+# LINEヤフー広告 MCPサーバー
 
 [English](README.md)
 
-LY Ads MCP Server は、 [Model Context Protocol （ MCP ） ](https://modelcontextprotocol.io/) を通じて [LINEヤフー広告 API](https://ads-developers.yahoo.co.jp/ja/ads-api/) を利用するためのローカルサーバーです。
+LINEヤフー広告 MCPサーバーは、 [Model Context Protocol (MCP) ](https://modelcontextprotocol.io/) を通じて [LINEヤフー広告 API](https://ads-developers.yahoo.co.jp/ja/ads-api/) を利用するためのローカルサーバーです。
 MCP に対応した AI エージェントから、LINEヤフー広告のディスプレイ広告及び検索広告のアカウント、キャンペーン、広告などを参照できます。
 
 このサーバーは Streamable HTTP で動作し、 LINEヤフー広告の OAuth 認証には [FastMCP OAuth Proxy](https://gofastmcp.com/servers/auth/oauth-proxy) を使用します。
@@ -86,7 +86,7 @@ API 管理ツールの権限管理については、以下のヘルプをご確�
 
 ## セットアップ
 
-Python 3.11 以降、[pipx](https://pipx.pypa.io/stable/installation/)、Git を用意してください。
+Python 3.11 以降、[pipx](https://pipx.pypa.io/stable/installation/)、Git をインストールしてください。
 
 発行した OAuth クライアントの情報と JWT 署名キーを、サーバーを起動するシェルの環境変数に設定します。
 
@@ -184,7 +184,7 @@ ID が分からない場合は、利用可能なベースアカウントと広�
 
 ## 取り扱うデータと認証情報
 
-LY Ads MCP Server から取得した LINEヤフー広告のデータは、MCP クライアントを介して AI エージェントへ提供されます。
+LINEヤフー広告 MCPサーバーから取得した LINEヤフー広告のデータは、MCP クライアントを介して AI エージェントへ提供されます。
 信頼できる MCP クライアントでのみ使用し、各クライアントのデータ取り扱い条件を確認してください。
 
 この MCP サーバーは `localhost` のみで接続を待ち受けます。
